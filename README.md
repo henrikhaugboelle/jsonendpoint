@@ -16,20 +16,16 @@ To run your own copy of [jsonendpoint.com](https://jsonendpoint.com) follow the 
 $ wrangler generate my-jsonendpoint https://github.com/henrikhaugboelle/jsonendpoint
 ```
 
-3. Fill in the missing values of the `wrangler.toml` file for `account_id`, `preview_id` and `id` for `kv_namespaces`, and `route` and `zone_id` if you plan on [using your own domain](https://developers.cloudflare.com/workers/get-started/guide#optional-configure-for-deploying-to-a-registered-domain).
+3. Fill in the missing values of the `wrangler.toml` file for `account_id` and `kv_namespaces.id`.
 
-4. To test your project locally run `wrangler dev` which starts a local server exposing an endpoint for you to invoke your worker function:
-
-```
-$ wrangler dev
-```
-
-
-5. To publish your project run `wrangler publish` which will build and deploy the worker to Cloudflare:
+4. Publish your project be running `wrangler publish` which builds and deploys the worker to Cloudflare:
 
 ```
 $ wrangler publish
 ```
+
+5. Voilá! You now have your very own copy of [jsonendpoint.com](https://jsonendpoint.com).
+
 
 ## API
 
