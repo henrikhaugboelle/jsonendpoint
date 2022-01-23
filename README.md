@@ -69,7 +69,7 @@ $ curl https://jsonendpoint.com/my/unique/endpoint \
 → {}
 ```
 
-### `DELETE` – `Delete` data
+### `DELETE` – Delete data
 
 To delete data at an endpoint you must issue a `DELETE` request. Upon successful deletion, the API will return an empty JSON response with http code 200.
 
