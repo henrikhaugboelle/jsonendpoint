@@ -3,4 +3,3 @@ node_modules
 transpiled
 /.idea/
 .DS_Store
-wrangler.toml

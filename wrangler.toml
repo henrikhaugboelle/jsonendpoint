@@ -1,0 +1,16 @@
+name = "my-jsonendpoint"
+type = "javascript"
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+compatibility_date = "2022-01-20"
+
+kv_namespaces = [ 
+  { binding = "JSONSTORAGE", preview_id = "", id = "" }
+]
+
+[build]
+command = "npm install && npm run build"
+[build.upload]
+format = "service-worker"
