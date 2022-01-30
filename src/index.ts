@@ -1,8 +1,14 @@
 declare const JSONSTORAGE: KVNamespace;
 
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET,HEAD,POST,PUT,DELETE,OPTIONS',
+  'Access-Control-Max-Age': '86400',
+}
+
 const send = (response: unknown = {}, status = 200) => {
   return new Response(JSON.stringify(response), {
-    headers: { 'content-type': 'application/json' },
+    headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     status,
   });
 }
@@ -25,6 +31,11 @@ async function handleEvent(event: FetchEvent): Promise<Response> {
     } else if (request.method === 'DELETE') {
       await JSONSTORAGE.delete(key);
       return send();
+    } else if (request.method === 'OPTIONS') {
+      return new Response(null, {
+        headers: { ...corsHeaders, 'Access-Control-Allow-Headers': request.headers.get('Access-Control-Request-Headers') || '', },
+        status: 204,
+      });
     }
   } catch (error) {
     console.error(error);
